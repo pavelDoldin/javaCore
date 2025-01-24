@@ -6,7 +6,19 @@ import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-
+    String str = "Добро пожаловать на курс по Java";
+        System.out.println(ex4(str));
+    }
+    public static String ex4(String str){
+        /**
+         * Во фразе "Добро пожаловать на курс по Java" переставить слова в обратном порядке.
+         */
+        String[] temp = str.split(" ");
+        String res = "";
+        for (int i = temp.length - 1; i >= 0; i--) {
+            res += temp[i] + " ";
+        }
+        return res;
     }
     public static void ex3(int[] arr, int val){
         /**
