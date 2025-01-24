@@ -1,12 +1,27 @@
 package org.example;
 
 import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-        int[] arr = new int[]{1,1,1,0,1,0,0,1,1,1};
-        ex2(arr, 0);
+
+    }
+    public static void ex3(int[] arr, int val){
+        /**
+         * Дан массив {3, 2, 5, 3} и число val = 3
+         * Если в массиве есть числа, равные значению, нужно перенести эти элементы в конец массива
+         */
+        int[] res = new int[arr.length];
+        Arrays.fill(res, val);
+        for (int i = 0, j = 0; i < res.length ; i++) {
+            if (arr[i] != val){
+                res[j] = arr[i];
+                j++;
+            }
+        }
+        System.out.println(Arrays.toString(res));
     }
     public static void ex2(int[] arr, int val){
         /**
