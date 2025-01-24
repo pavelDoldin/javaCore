@@ -1,14 +1,34 @@
 package org.example;
 
-import java.sql.Time;
 import java.time.LocalTime;
 import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-        ex1();
+        int[] arr = new int[]{1,1,1,0,1,0,0,1,1,1};
+        ex2(arr, 0);
     }
-
+    public static void ex2(int[] arr, int val){
+        /**
+         * Дан массив двоичных чисел, например [1,1,0,1,1,1], вывести максимальное количество подряд идущих 1.
+         */
+      int count = 0;
+      int maxCount = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == val){
+                count ++;
+            } else {
+                if(count > maxCount){
+                    maxCount = count;
+                }
+                count = 0;
+            }
+        }
+        if (count > maxCount){
+            maxCount = count;
+        }
+        System.out.println(maxCount);
+    }
     public static void ex1(){
         /**
          * В консоли запросить имя пользователя. В зависимости от текущего времени, вывести приветствие вида
