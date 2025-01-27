@@ -7,11 +7,19 @@ import java.util.Scanner;
 public class App {
     public static void main( String[] args ) {
 
-        int a = 2;
-        int b = -2;
-        double c = ex5(a, b);
-        System.out.println(c);
-
+    }
+    public static int ex6() {
+        /**
+         * Вычислить n-ое треугольного число(сумма чисел от 1 до n).
+         */
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        int rez = 0;
+        //rez = number * (number + 1) / 2;
+        for (int i = 1; i <= number; i++) {
+            rez += i;
+        }
+        return rez;
     }
     public static double ex5(int a, int b){
         /**
