@@ -8,6 +8,21 @@ public class App {
     public static void main( String[] args ) {
 
     }
+    public static String ex7(int number) {
+        /**
+         * n! (произведение чисел от 1 до n)
+         */
+        if (number <= 0) {
+            return String.format("%d число не может быть отрицательным.", number);
+        } else {
+            int factorial = 1;
+            for (int i = 1; i <= number; i++) {
+                factorial *= i;
+            }
+            return String.format("Факториал числа %d равен %d", number, factorial);
+        }
+    }
+
     public static int ex6() {
         /**
          * Вычислить n-ое треугольного число(сумма чисел от 1 до n).
