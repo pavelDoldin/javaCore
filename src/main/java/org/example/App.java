@@ -6,9 +6,37 @@ import java.util.Scanner;
 
 public class App {
     public static void main( String[] args ) {
-        ex8();
+
     }
 
+    public static double ex9() {
+        Scanner scanner = new Scanner(System.in);
+        double res;
+
+        System.out.println("Введите первое число.");
+        double firstNumber = scanner.nextInt();
+
+        System.out.println("Введите операцию деление /\n" +
+                "   \t умножение *\n" +
+                "   \t деление с остатком %\n" +
+                "   \t сложение +\n" +
+                "   \t вычитание -");
+        String c = scanner.next();
+
+        System.out.println("Введите второе число.");
+        double secondNumber = scanner.nextInt();
+
+        if (c.equals("/")) {
+            res = firstNumber / secondNumber;
+        } else if (c.equals("*")) {
+            res = firstNumber * secondNumber;
+        } else if (c.equals("+")) {
+            res = firstNumber + secondNumber;
+        } else {
+            res = firstNumber - secondNumber;
+        }
+        return res;
+    }
     public static void ex8() {
         //Вывести все простые числа от 1 до 1000
         for (int i = 2; i < 1000; i++) {
