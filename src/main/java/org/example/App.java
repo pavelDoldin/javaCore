@@ -8,6 +8,32 @@ public class App {
     public static void main( String[] args ) {
 
     }
+    public static String ex11(String s) {
+        //Напишите метод, который сжимает строку.
+        //Пример: вход aaaabbbcdd.
+        //Результат: a4b3cd2
+
+        int count = 1;
+        StringBuilder stringBuilder = new StringBuilder();
+
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == s.charAt(i-1)){
+                count++;
+            } else {
+                stringBuilder.append(s.charAt(i-1));
+                if (count != 1){
+                    stringBuilder.append(count);
+                }
+                count = 1;
+            }
+        }
+        stringBuilder.append(s.charAt(s.length()-1));
+        if (count != 1){
+            stringBuilder.append(count);
+        }
+
+        return stringBuilder.toString();
+    }
     public static String ex10(char c1, char c2, int n){
         /**
          * Дано четное число N (>0) и символы c1 и c2.
