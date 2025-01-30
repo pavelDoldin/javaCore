@@ -8,6 +8,25 @@ public class App {
     public static void main( String[] args ) {
 
     }
+    public static boolean ex12(String s) {
+        // Напишите метод, который принимает на вход строку (String)
+        // и определяет, является ли строка палиндромом (возвращает boolean значение).
+
+//        StringBuilder stringBuilder = new StringBuilder(s);
+//        stringBuilder = stringBuilder.reverse();
+//        if (s.equals(stringBuilder.toString())) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+
+        for (int i = 0; i < s.length() / 2; i++) {
+            if (s.charAt(i) != s.charAt(s.length() - 1 - i)){
+                return false;
+            }
+        }
+        return true;
+    }
     public static String ex11(String s) {
         //Напишите метод, который сжимает строку.
         //Пример: вход aaaabbbcdd.
