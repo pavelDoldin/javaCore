@@ -1,5 +1,8 @@
 package org.example;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -7,6 +10,41 @@ import java.util.Scanner;
 public class App {
     public static void main( String[] args ) {
 
+    }
+    public static void ex13(String s, int n){
+        /**
+         * Напишите метод, который составит строку, состоящую из 100 повторений слова TEST и метод,
+         * который запишет эту строку в простой текстовый файл, обработайте исключения.
+         */
+        String filePath = "test.txt";
+        String s1 = repeatString(s, n);
+        writeToFile(s1, filePath);
+
+    }
+    static void writeToFile(String s, String filePath){
+//        File file = new File(filePath);
+//        if (!file.exists()) {
+//            try {
+//                file.createNewFile();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//
+//        }
+        try (FileWriter fileWriter = new FileWriter(filePath, false)){
+            fileWriter.write(s);
+            fileWriter.flush();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    static String repeatString(String s, int n){
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < n; i++) {
+            stringBuilder.append(s);
+        }
+        return stringBuilder.toString();
     }
     public static boolean ex12(String s) {
         // Напишите метод, который принимает на вход строку (String)
