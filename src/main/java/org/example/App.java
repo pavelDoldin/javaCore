@@ -6,11 +6,20 @@ import java.io.IOException;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class App {
     public static void main( String[] args ) {
+//        String s = "hi";
+//        int n = 100;
+//        ex13(s, n);
+
 
     }
+
     public static void ex13(String s, int n){
         /**
          * Напишите метод, который составит строку, состоящую из 100 повторений слова TEST и метод,
@@ -31,13 +40,26 @@ public class App {
 //            }
 //
 //        }
-        try (FileWriter fileWriter = new FileWriter(filePath, false)){
-            fileWriter.write(s);
-            fileWriter.flush();
-        }catch (Exception e){
+
+        try {
+            Logger logger = Logger.getAnonymousLogger();
+            FileHandler fileHandler = new FileHandler("log.txt", true);
+            logger.addHandler(fileHandler);
+            SimpleFormatter simpleFormatter = new SimpleFormatter();
+            fileHandler.setFormatter(simpleFormatter);
+
+            try (FileWriter fileWriter = new FileWriter(filePath, false)) {
+                fileWriter.write(s);
+                fileWriter.flush();
+                logger.log(Level.INFO, "Все создалось и записалось.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                logger.log(Level.WARNING, e.getMessage());
+            }
+            fileHandler.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
     static String repeatString(String s, int n){
         StringBuilder stringBuilder = new StringBuilder();
